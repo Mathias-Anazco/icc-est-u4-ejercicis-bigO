@@ -8,7 +8,14 @@ public class RespuestasOptimizadas {
     public static String tieneDuplicadosComplejidad = ""; // Ej: "O(n)"
 
     public static boolean tieneDuplicadosOpt(int[] arr) {
-        // TODO: implementar versión eficiente
+        
+        int maximo = arr.length;
+        boolean[] vistos = new boolean[maximo];
+
+        for(int numero : arr){
+            if(vistos[numero]) return true;
+            vistos[numero] = true;
+        }
         return false;
     }
 
@@ -16,15 +23,29 @@ public class RespuestasOptimizadas {
     public static String contarMayoresComplejidad = ""; // Ej: "O(n)"
 
     public static int contarMayoresOpt(int[] arr, int x) {
-        // TODO: implementar versión eficiente
-        return 0;
+                int contador = 0;
+        for (int numero : arr) {
+            if (numero > x) {
+                contador++;
+            }
+        }
+        return contador;
     }
 
     // 3. Versión optimizada de encontrarMaximo (Complejidad anotada en la variable)
     public static String encontrarMaximoComplejidad = ""; // Ej: "O(n)"
 
     public static int encontrarMaximoOpt(int[] arr) {
-        // TODO: implementar versión eficiente
-        return 0;
+        if (arr.length == 0) {
+            throw new IllegalArgumentException("El arreglo no debe estar vacío");
+        }
+
+        int maximo = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > maximo) {
+                maximo = arr[i];
+            }
+        }
+        return maximo;
     }
 }
